@@ -9,6 +9,7 @@
  * @copyright   Copyright (c) 1990-2012 FormaServe Systems Ltd 
  * @project     Training
  * 
+ * Test
  */
 class Application_Model_DbTable_Enquiries extends Zend_Db_Table_Abstract {
 
