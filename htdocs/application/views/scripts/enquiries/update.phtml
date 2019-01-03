@@ -1,0 +1,409 @@
+<?
+//$this->setEncoding('UTF-8');
+$this->headTitle(' #' . $this->header["ENQ_NO"]);
+?>
+
+<div class="search">
+    <p>&nbsp;</p>
+    <form id="form_ticket" action="/enquiries/update/" method="post">
+
+        <div id="header">
+
+            <ul>
+                <li><a href="#header1">Header</a></li>
+                <li><a href="#header2">Map</a></li>
+            </ul>
+
+            <!--Main Enquiry Details-->
+            <div id="header1">
+                <input type="hidden" name="enq_no" value="<?= $this->header["ENQ_NO"] ?>">
+                <input type="hidden" name="f" value="B">
+<!--                <input type="hidden" name="f">-->
+                <input type="hidden" name="ONWARD" id="ONWARD">
+                <input type="hidden" name="log_no" id="log_no" value="<?= $this->log_no ?>">
+                <input type="hidden" name="crs_no" id="crs_no" value="<?= $this->crs_no ?>">
+                <input type="hidden" name="stu_no" id="stu_no" value="<?= $this->stu_no ?>">
+                <input type="hidden" name="soc_no" id="soc_no" value="<?= $this->soc_no ?>">
+                <input type="hidden" name="enr_no" id="enr_no" value="<?= $this->enr_no ?>">
+                <input type="hidden" name="pay_no" id="pay_no" value="<?= $this->pay_no ?>">
+                <input type="hidden" name="current_enquirer" id="current_enquirer" value="<?= trim($this->current_enquirer) ?>">
+
+                <table style="text-align:left; margin: auto;">
+                    <tr>
+                        <td style="width:150px; color:blue">Enquiry Number</td>
+                        <td><input style="color:blue" type="text" id="ENQ_NO" name="ENQ_NO" value="<?= $this->header["ENQ_NO"] ?>" disabled ></td>
+                        <td style="width:90px;">&nbsp;</td>
+                        <td style="width:90px;">&nbsp;</td>
+                        <td>Company</td>
+                        <td><input type="text" id="COMPANY" name="COMPANY" value="<?= trim($this->header["COMPANY"]) ?>" ></td>
+                        <td style="width:150px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Enquirer</td>
+                        <td><input type="text" id="ENQUIRER" name="ENQUIRER" value="<?= trim($this->header["ENQUIRER"]) ?>" ></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>Telephone</td>
+                        <td><input type="text" id="TELEPHONE" name="TELEPHONE" value="<?= trim($this->header["TELEPHONE"]) ?>" ></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" id="EMAIL" name="EMAIL" value="<?= trim($this->header["EMAIL"]) ?>" ></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>Location</td>
+                        <td><input type="text" id="LOCATION" name="LOCATION" value="<?= trim($this->header["LOCATION"]) ?>" ></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td style="width: 150px;"><?= $this->status ?></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>Price</td>
+                        <td><input type="text" id="PRICE" name="PRICE" value="<?= trim($this->header["PRICE"]) ?>" ></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Opened By</td>
+                        <td><input type="text" value="<?= trim($this->header["ADD_USER"]) . ' On ' . getFullDate($this->header["ADD_TS"]) ?>" disabled></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>Dates Given</td>
+                        <td><input type="text" id="DATE_GIVEN1" name="DATE_GIVEN1" value="<?= getFullDate($this->header["DATE_GIVEN1"]) ?>"  class="date" ></td>    
+                        <td><input type="text" id="DATE_GIVEN2" name="DATE_GIVEN2" value="<?= getFullDate($this->header["DATE_GIVEN2"]) ?>"  class="date" ></td>
+                    </tr>
+                    <tr>
+                        <td>Last Changed By</td>
+                        <td><input type="text" id="CHANGE_USER" name="CHANGE_USER" value="<?= trim($this->header["CHANGE_USER"]) . ' On ' . getFullDate($this->header["CHANGE_TS"]) ?>" disabled/></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><input type="text" id="DATE_GIVEN3" name="DATE_GIVEN3" value="<?= getFullDate($this->header["DATE_GIVEN3"]) ?>" class="date"  ></td>
+                        <td><input type="text" id="DATE_GIVEN4" name="DATE_GIVEN4" value="<?= getFullDate($this->header["DATE_GIVEN4"]) ?>"  class="date" ></td>
+                    </tr>
+                    <tr>
+                        <td>Follow Up</td>
+                        <td><input type="text" id="FOLLOW_UP" name="FOLLOW_UP" value="<?= getFullDate($this->header["FOLLOW_UP"]) ?>" class="date"  ></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><input type="text" id="DATE_GIVEN5" name="DATE_GIVEN5" value="<?= getFullDate($this->header["DATE_GIVEN5"]) ?>"  class="date" ></td> 
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>PO</td>
+                        <td><input type="text" id="PO" name="PO" value="<?= trim($this->header["PO"]) ?>" ></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>Chased Date</td>
+                        <td><input type="text" id="CHASED_DATE" name="CHASED_DATE" value="<?= getFullDate($this->header["CHASED_DATE"]) ?>" class="date"  ></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Web-site</td>
+                        <td><input type="text" id="WEBSITE" name="WEBSITE" value="<?= trim($this->header["WEBSITE"]) ?>" ></td>
+                        <td><a onclick="window.open('http://<?= $this->header["WEBSITE"] ?>')" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-link"></span></a></td>
+                        <td>&nbsp;</td>
+                        <td>Post Code</td>
+                        <td><input type="text" id="POST_CODE" name="POST_CODE" value="<?= trim($this->header["POST_CODE"]) ?>"  class="date" ></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:text-top;">Comments</td>
+                        <td colspan="2"><textarea rows="2" id="COMMENTS" name="COMMENTS"><?= trim($this->header["COMMENTS"]) ?></textarea></td>
+                        <td>&nbsp;</td>
+                        <td style="vertical-align:text-top;">Address</td>
+                        <td colspan="2"><textarea rows="2" id="ADDRESS" name="ADDRESS"><?= trim($this->header["ADDRESS"]) ?></textarea></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!--Google Maps-->
+            <div id="header2">
+                <table>
+                    <tr>
+                        <td>
+                            <?php
+                            if ($this->map) {
+                                ?>
+                                <iframe width = "625" height = "500" frameborder = "0" scrolling = "no" marginheight = "0" marginwidth = "0" src = "https://maps.google.it/maps?q=<?php echo urlencode($this->header["ADDRESS"]) ?>&output=embed&11=<?php echo urlencode($this->header["ADDRESS"]) ?>"></iframe>
+                                <?php
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="paging" style="text-align:right; margin: 10px;">
+            <input style ="color:green" type="submit" class="button" value="Close Tab" onclick="close_tab();" ><input style ="color:blue" type="submit" class="button" value="Save" onclick="$('#f').val('B');
+                    $('#form_ticket').submit();" >
+        </div>
+
+        <div id="tabs2">
+            <ul>
+                <li><a href="#tabs-1">Activity Log</a></li>
+                <li><a href="#tabs-2">Courses</a></li>
+                <li><a href="#tabs-3">Students</a></li>
+                <li><a href="#tabs-4">Courses/Students</a></li>
+                <li><a href="#tabs-5">Enquirers</a></li>
+                <li><a href="#tabs-6">Payment/Expenses</a></li>
+            </ul>
+
+            <!-- Log Tab  -->
+            <div id="tabs-1">
+                <div id="paging2" style="text-align:right; margin: 10px;">
+                    <input type="submit" class="button" value="New Activity" onclick="redirectPage('<?= $this->url(array('controller' => 'log', 'action' => 'index', 'enq_no' => $this->header["ENQ_NO"])); ?>');
+                            return false;"><input type="submit" class="button" value="Auditing" id="ToggleA"  onclick="redirectPage('<?= $this->url(array('controller' => 'enquiries', 'action' => 'update', 'enq_no' => $this->header["ENQ_NO"], 'sel' => 'ta')); ?>');
+                                    return false;"><input type="submit" class="button" value="Switch Order" id="ToggleB" onclick="redirectPage('<?= $this->url(array('controller' => 'enquiries', 'action' => 'update', 'enq_no' => $this->header["ENQ_NO"], 'sel' => 'tb')); ?>');
+                                            return false;">
+                </div>
+
+                <table class="resultset" style="width: 100%">
+                    <?php foreach ($this->logs as $log) : ?>
+                        <tr>
+                            <th colspan="2" style="text-align:left;"><?= getFullDateTime($log->LOG_TS) . ' By ' . $log->LOG_USER ?></th>
+                        </tr>
+                        <tr>
+                            <td style="width:15px;"><? if (trim($log->LOG_USER) == trim($this->user) && $log->EDIT_FLAG == 1) { ?><a title="Edit Log" href="/log/update/enq_no/<?= $log->ENQ_NO ?>/log_no/<?= $log->LOG_NO ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-circle-triangle-e"></span></a><? } ?></td>
+                            <td style="text-align:left; padding-left:10px; vertical-align:central;"><?= $log->ENTRY ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+
+            <!-- Courses Tab    -->
+            <div id="tabs-2">
+
+                <div id="paging2" style="text-align:right; margin: 10px;">
+                    <input type="submit" class="button" value="New Course" onclick="redirectPage('<?= $this->url(array('controller' => 'courses', 'action' => 'index', 'enq_no' => $this->header["ENQ_NO"])); ?>');
+                            return false;">
+                </div>
+                <?php
+                if ($this->crs_no > 0) {
+                    ?>
+                    <table  class="resultset" style="text-align:left; margin: auto;">
+
+                        <tr>
+                            <th style="width: 20px">&nbsp;</th>
+                            <th style="width:200px;">Date</th>
+                            <th style="width:200px;">Course</th>
+                            <th style="width:100px;">Venue</th>
+                            <th style="width:400px; text-align:center">Students</th>
+                            <th style="width:400px; text-align:center">Days</th>
+                            <th style="width:400px;text-align:center">Instructor</th>
+                            <th style="width:600px;">Comments</th>
+                            <th style="width: 20px">&nbsp;</th>
+                        </tr>
+
+                        <?php
+                        foreach ($this->training_courses as $details) :
+                            ?>
+                            <tr>
+                                <td style="width: 20px"><a title="Edit Course" href="<?php echo $this->url(array('controller' => 'courses', 'action' => 'update', 'enq_no' => $this->enq_no, 'no' => $details->NUMBER)); ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-circle-triangle-e"></span></a></td>
+                                <td><?= getFullDate($details->START_DATE); ?></td>
+                                <td title='<?= getCourseTitle(trim($details->COURSE_CODE)) ?>'><?= $details->COURSE_CODE; ?></td>
+                                <td><?= $details->VENUE; ?></td>
+                                <td style="text-align:center"><?= $details->NO_OF_STUDENTS; ?></td>
+                                <td style="text-align:center"><?= $details->NO_OF_DAYS; ?></td>
+                                <td title='<?= getInstructor(trim($details->INSTRUCTOR)) ?>' style="text-align:center"><?= $details->INSTRUCTOR; ?></td>
+                                <td><?= $details->COMMENTS; ?></td>
+                                <td style="width: 20px"><a title="Delete Course" href="<?php echo $this->url(array('controller' => 'courses', 'action' => 'delete', 'enq_no' => $this->enq_no, 'no' => $details->NUMBER)); ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-trash"></span></a></td>
+                            </tr>
+                            <?php
+                        endforeach;
+                        ?>
+                    </table>
+                    <?php
+                }
+                ?>
+
+            </div>
+
+            <!-- Students Tab  -->
+            <div id="tabs-3">
+
+                <div id="paging2" style="text-align:right; margin: 10px;">
+                    <input type="submit" class="button" value="New Student" onclick="redirectPage('<?= $this->url(array('controller' => 'students', 'action' => 'index', 'enq_no' => $this->enq_no)); ?>');
+                            return false;"><input type="submit" class="button" value="Assesments" onclick="redirectPage('<?= $this->url(array('controller' => 'pdf', 'action' => 'assesments', 'enq_no' => $this->enq_no)); ?>');
+                                    return false;">
+                </div>
+
+                <?php
+                if ($this->stu_no > 0) {
+                    ?>
+                    <table  class="resultset" style="text-align:left; margin: auto;">
+
+                        <tr>
+                            <th style="width: 20px">&nbsp;</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th style="text-align:center">Content</th>
+                            <th style="text-align:center">Instructor</th>
+                            <th style="text-align:center">Facilities</th>
+                            <th style="text-align:center">Publish</th>
+                            <th style="text-align:center">Web</th>
+                            <th>Comments</th>
+                            <th style="width: 20px">&nbsp;</th>
+                        </tr>
+
+                        <?php
+                        foreach ($this->students as $details) :
+
+                            $agree = '&#215;';
+                            $web = '&#215;';
+
+                            If ($details->PUBLISHING_AGREEMENT == 1) {
+                                $agree = "&#10003;";
+                            }
+
+                            If ($details->WEB_SHOW == 1) {
+                                $web = "&#10003;";
+                            }
+                            ?>
+
+                            <tr
+
+                                <?
+                                if ($details->WEB_SHOW == 1) {
+                                echo "style=\"color:BLUE;\"";
+                                }
+                                ?>>
+
+                                <td style="width: 20px"><a href="<?php echo $this->url(array('controller' => 'students', 'action' => 'update', 'enq_no' => $this->enq_no, 'id' => $details->ID)); ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-circle-triangle-e"></span></a></td>
+                                <td><?= Trim($details->FIRST_NAME) . ' ' . $details->SURNAME; ?></td>
+                                <td><?= $details->EMAIL; ?></td>
+                                <td style="text-align:center"><?= getConfiguration('ASSESMENT', $details->ASSESMENT_CONTENT); ?></td>
+                                <td style="text-align:center"><?= getConfiguration('ASSESMENT', $details->ASSESMENT_INSTRUCTOR); ?></td>
+                                <td style="text-align:center"><?= getConfiguration('ASSESMENT', $details->ASSESMENT_FACILITIES); ?></td>
+                                <td style="text-align:center"><?= $agree; ?></td>
+                                <td style="text-align:center"><?= $web; ?></td>
+                                <td><?= $details->COMMENTS; ?></td>
+                                <td style="width: 20px"><a href="<?php echo $this->url(array('controller' => 'students', 'action' => 'delete', 'enq_no' => $this->enq_no, 'id' => $details->ID)); ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-circle-close"></span></a></td>                                
+                            </tr>
+                            <?php
+                        endforeach;
+                        ?>
+
+                    </table>
+                    <?php
+                }
+                ?>
+
+            </div>
+
+            <!-- Courses/Students  -->
+            <div id="tabs-4">
+
+                <?php
+                if ($this->crs_no > 0) {
+                    ?>
+
+                    <div id="coursestudents" style="text-align:right; margin: 10px;">
+                        Select All<input style="width: 50px" type="checkbox" name="all" >
+                    </div>
+
+                    <table class="resultset" style="margin: auto;">
+
+                        <tr>
+                            <th  style="width: 60px">Student</th>
+                            <?php
+                            foreach ($this->training_courses as $course) :
+                                echo "<th style='width: 40px; text-align:center;vertical-align: middle;' title='" . trim(getCourseTitle(trim($course->COURSE_CODE))) ."'>" . $course->COURSE_CODE .  "</th>";
+                            endforeach;
+                            ?>
+                        </tr>
+
+                        <?php
+                        
+                        foreach ($this->students as $student) :
+                            echo "<tr>";
+                            echo "<td>" . trim($student->FIRST_NAME[0] . " " . $student->SURNAME) . "</td>";
+
+                            foreach ($this->training_courses as $course) :
+
+                                $name = $course->COURSE_CODE . "_" . Trim($student->ID);
+                                $oncourse = isOnCourse($this->enq_no, $course->COURSE_CODE, $student->ID);
+                                $checked = '';
+
+                                If ($oncourse) {
+                                    $checked = "checked='checked'";
+                                }
+
+                                echo "<td style='width: 60px'><input style = 'width: 40px;text-align:center;vertical-align: middle;' type='checkbox' name=" . $name . " " . $checked . "</td> ";
+                                   
+                            endforeach;
+                            
+                            echo "</tr>";
+                        endforeach; 
+                        ?>
+
+                    </table>
+
+                    <?php
+                }
+                ?>
+
+            </div>
+
+            <!-- Enquirers Tab  -->
+            <div id="tabs-5">
+                <table class="resultset" style="width: 100%">
+                    <?php foreach ($this->enr as $enquirer) : ?>
+                        <tr>
+                            <td style="width: 80px"><?= getFullDate($enquirer->ADD_TS) ?></td>
+                            <td><?= $enquirer->NAME ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+
+
+            <!-- Payment/Expenses Tab  -->
+            <div id="tabs-6">
+
+                <div id="header">
+
+                    <br>
+                    <table class="resultset" style="width: 100%">
+                        <tr>
+                            <th>Payment Details</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>Expense Details</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><textarea rows="2" id="PAYMENT" name="PAYMENT"><?= trim($this->header["PAYMENT"]) ?></textarea></td>
+                            <td>&nbsp;</td>
+                            <td colspan="2"><textarea rows="2" id="EXPENSES" name="EXPENSES"><?= trim($this->header["EXPENSES"]) ?></textarea></td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Spoilt  Dialog -->
+<div id="popup_spoilt" title="Spoilt Enquiry">
+    <form id="form_close" >
+        <input type="hidden" name="f" value="E">
+        <input type="hidden" name="enq_no" value="<?= $this->enq_no ?>">
+        <div id="dialog-confirm" title="Warning">
+            <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Be Aware This Enquiry is Spoilt></p>
+            <p>Are you sure?</p>
+        </div>
+    </form> 
+</div>

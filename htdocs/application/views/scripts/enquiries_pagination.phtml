@@ -1,0 +1,47 @@
+<?php
+if ($this->pageCount) :
+    $midRange = floor(sizeof($this->pagesInRange) / 2);
+    if (($this->current + $midRange) < $this->pageCount) :
+        array_pop($this->pagesInRange);
+        $display_end = true;
+    endif;
+    ?>
+    <div class="paginationControl<?= $this->position; ?>">
+        <div class="paginationControl_showing">
+            Viewing page <?= $this->current; ?> of <?= $this->last; ?>
+        </div>
+        <div class="paginationControl_pages">
+            <!-- Previous page link -->
+            <?php if (isset($this->previous)): ?>
+                <a href="/enquiries/index/f/<?= $this->f; ?>/sel/<?= $this->sel; ?>/page/<?= $this->previous . $this->paging_qs . $this->query; ?>" >&lt; Previous</a>
+            <?php else: ?>
+                <span class="disabled">&lt; Previous</span>
+            <?php endif; ?>
+            <span class="disabled">|</span>
+            <?php if (($this->current - $midRange) > $this->first): ?>
+                <?php array_shift($this->pagesInRange); ?>
+                <a href="/enquiries/index/f/<?= $this->f; ?>/sel/<?= $this->sel; ?>/page/<?= $this->first . $this->paging_qs . $this->query; ?>" ><?= $this->first ?></a>... 
+            <?php endif; ?>
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+
+                <?php if ($page != $this->current): ?>
+                    <a href="/enquiries/index/f/<?= $this->f; ?>/sel/<?= $this->sel; ?>/page/<?= $page . $this->paging_qs . $this->query; ?>" ><?= $page; ?></a> 
+                <?php else: ?>
+                    <span class="disabled"><?= $page; ?> 
+                    <?php endif; ?>
+                    <span class="disabled">|</span>
+                <?php endforeach; ?>
+                <?php if (!empty($display_end)) : ?>
+                    ...<a href="/enquiries/index/f/<?= $this->f; ?>/sel/<?= $this->sel; ?>/page/<?= $this->last . $this->paging_qs . $this->query; ?>" ><?php echo $this->last ?></a>
+                <?php endif; ?>
+                <!-- Next page link -->
+                <?php if (isset($this->next)): ?>
+                    <a href="/enquiries/index/f/<?= $this->f; ?>/sel/<?= $this->sel; ?>/page/<?= $this->next . $this->paging_qs . $this->query; ?>" >Next &gt;</a>
+                <?php else: ?>
+                    <span class="disabled">Next &gt;</span>
+                <?php endif; ?>
+        </div>
+    </div>
+
+<?php endif; ?>

@@ -1,0 +1,60 @@
+<div class="search">
+    <p>&nbsp;</p>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Search</a></li>
+        </ul>
+        <div id="tabs-1">
+            <form id="search" action="index" method="post">
+                <table style="margin: auto;">
+                    <tr>
+                        <td style="width: 150px;">Key</td>
+                        <td style="width: 150px;"><?= $this->dropdown ?></td>
+                        <td style="width: 50px;">&nbsp;</td>
+                        <td style="width: 150px;"><input type="submit" value="Search"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <p style="text-align: right; font-size: 1em;">
+        <input id="new" type="submit" value="New Configuration" onclick="redirectPage('<?php echo $this->url(array('controller' => 'configuration', 'action' => 'add')); ?>'); return false;" >&nbsp;</p>
+    <div id="tabs2">
+        <ul>
+            <li><a href="#tabs-1">Results</a></li>
+        </ul>
+        <div id="tabs-1" style="overflow:auto;">
+
+            <table class="resultset">
+                <tr>
+                    <th style="width: 20px">&nbsp;</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Text</th>
+                    <th>Added By</th>
+                    <th>Added On</th>
+                    <th>Changed By</th>
+                    <th>Changed On</th>
+                    <th style="width: 20px">&nbsp;</th>
+                </tr>
+                <?php foreach ($this->configuration as $parm) :
+                    ?>
+
+                    <tr>
+                        <td style="width: 20px"><a href="<?php echo $this->url(array('controller' => 'configuration', 'action' => 'update', 'id' => $parm->ID   ) ) ; ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-circle-triangle-e"></span></a></td>
+                        <td><?= $parm->PARAMETERS; ?></td>
+                        <td><?= $parm->PARM_VALUE; ?></td>
+                        <td><?= $parm->PARM_TEXT; ?></td>
+                        <td><?= $parm->ADD_USER; ?></td>
+                        <td><?= (getDateFromTimestamp($parm->ADD_TIMESTAMP) . " " . getTimeFromTimestamp($parm->ADD_TIMESTAMP) ); ?></td>
+                        <td><?= $parm->CHANGE_USER; ?></td>
+                        <td><?= (getDateFromTimestamp($parm->CHANGE_TIMESTAMP) . " " . getTimeFromTimestamp($parm->CHANGE_TIMESTAMP) ); ?></td>
+                        <td style="width: 20px"><a href="<?php echo $this->url(array('controller' => 'configuration','action' => 'delete','id'=> $parm->ID ) ) ; ?>" class="ui-button ui-button-icon-left ui-state-default ui-corner-all"><span class="ui-icon ui-icon-circle-close"></span></a></td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </table>
+        </div>
+    </div>
+</div>

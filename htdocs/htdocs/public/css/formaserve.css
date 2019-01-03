@@ -1,0 +1,358 @@
+/**
+ * FormaServe Style Sheet
+ * 
+ * @author      FormaServe Systems Ltd
+ * @copyright   Copyright © 1990-2013 FormaServe Systems Ltd 
+ * @project     f_Helpdesk
+ * @category    Tickets
+ * @package     f_Helpdesk
+ * @subpackage  Tickets
+ * @version     1.0.0
+ * @since       File available since 1.0.0
+ * @link        http://www.formaserve.co.uk 
+ * 
+ */
+
+﻿body{
+    background-color: #CCCCCC;
+    text-align: center;
+}
+
+
+div.wrapper{
+    width: 90%;
+    margin: auto;
+    background-color: white;
+    outline: white solid 1px;
+    border: 1px gray solid;
+    text-align: center;
+}
+
+div.header {
+    background: white url('../graphics/Slice 2.png') repeat-x scroll left top;
+    height: 83px;
+    width: 100%;
+    text-align: right;
+}
+
+div.header_logo {
+	width: 196px;
+	height: 56px;
+	background: url(../graphics/header_logo.jpg);
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+div.header_bg {
+	width: 100%;
+	height: 56px;
+	background: url(../graphics/header_bg.jpg) repeat-x;
+	margin: 0;
+	padding: 0;
+}
+
+div.header h1 {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    font-weight:normal;
+    line-height: 83px;
+}
+
+div.header ul{
+    margin-top: -22px;
+    margin-right: 10px;
+    float: right;
+    color: #8E8E8C;
+}
+
+div.header li{
+    display: inline;
+    list-style-type:none;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.header li a:hover, div.header li a:link, div.header li a:visited{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    color: #676766;
+    text-decoration: none;
+}
+
+div.headerb {
+    background: transparent url('../graphics/Slice 1.png') no-repeat scroll left top;
+    float:left;
+    height: 83px;
+    width: 265px;
+}
+
+div.content {
+    text-align: center;
+}
+
+div.search {
+    font-size: 0.6em;
+    width: 90%;
+    text-align: left;
+    border: 1px solid white;
+    margin: auto;
+}
+
+div.results {
+    margin: auto; 
+    text-align: center;
+    font: ariel;
+    width: 95%;
+    border: 1px solid #CCCCCC;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    height: 300px;
+    line-height: 1.1em;
+}
+
+#search2 {
+    margin:auto;
+    text-align: center;
+}
+
+table.resultset {
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background-color: #CDCCCC;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+tr.alt td
+{background-color: #FFFFFF;}
+
+tr.over td{
+    background-color: #FFFFFF;
+}
+
+input {
+    width: 220px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+input[readonly] {
+    background-color: #E4E4E4;
+    color: #000000;
+    border: solid 1px #CCCCCC;
+}
+
+input.button {
+    width: 100px;
+    height: 28px;
+}
+
+input.date {
+    width: 100px;
+}
+
+input.time {
+    width: 50px;
+}
+
+input.datetime {
+    width: 120px;
+}
+
+input.long {
+    width: 300px;
+}
+
+input.short {
+    width: 100px;
+}
+
+a img {
+    border: none;
+}
+
+select{
+    width: 200px;
+}
+
+textarea{
+    width: 97%;
+    height: 150px;
+}
+
+textarea.log{
+    width: 80%;
+    height: 300px;
+}
+
+.no-close .ui-dialog-titlebar-close {display: none; }
+
+#filedrag {
+    display: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 1em 0;
+    margin: 1em 0;
+    color: #555;
+    border: 2px dashed #555;
+    border-radius: 7px;
+    cursor: default;
+}
+
+#filedrag.hover {
+    color: #0000FF;
+    border-color: #0000FF;
+    border-style: solid;
+    box-shadow: inset 0 3px 4px #888;
+}
+
+div.tab-4 li a:hover, div.tab-4 li a:link, div.tab-4 li a:visited{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    color: green;
+    text-decoration: none;
+}
+
+#alertWindow {
+    display: none;
+    text-align: center;
+    border: 1px solid #333;
+    width: 200px;
+    height: 80px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#btnOk, #btnCancel { 
+    width: 70px; 
+}
+
+label.error { 
+    float: none; 
+    color: red; 
+    padding-left: .5em; 
+    vertical-align: top; 
+    width: 150px;
+}
+.ui-tooltip 
+{
+    font-size:10pt;
+    font-family:Calibri;
+    color:#0099ff;
+    box-shadow: 0 0 7px black;
+    border-radius: 15px;
+}
+
+div.footer {
+    height: 35px;
+    width: 100%;
+    text-align: right;
+    color: steelblue;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    font-weight:normal;
+    line-height: 35px;
+}
+
+a:link { 
+    text-decoration: none;
+}
+
+div.ui-datepicker{
+    font-size:10px;
+}
+div.ui-autocomplete{
+    font-size:10px;
+}
+div.ui-dialog{
+    font-size: 10px;
+}
+
+label {
+    display: inline-block; width: 10em;
+}
+
+select, input {
+    font-size: 1.3em;
+}
+.paginationControl {
+    padding: 10px;
+    color: #333333;
+    height: 13px;
+}
+.paginationControl_showing {
+    float: left;
+    position: relative;
+}
+.paginationControl_showing strong.current {
+    color: #a8050d;
+}
+.paginationControl_pages {
+    float: right;
+    position: relative;
+    color: #494848;
+}
+
+.paginationControl_pages a {
+    color: #494848;
+}
+
+.paginationControl_pages strong {
+    color: #a8050d;
+}
+
+.paginationControl_pages .previous, .paginationControl_pages .next {
+color: #a8050d;
+}
+
+.disabled {
+    color: #CDCCCC;
+}
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+.ui-menu .ui-menu-item a{
+    /*border-radius: 0px;*/
+    /*border: 1px solid #454545;*/
+    /*color: blueviolet;*/
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 0.6em;
+    text-align: left;
+    margin:0;
+    padding: 0;
+    zoom: 1;
+    float: left;
+    clear: left;
+    width: 100%;
+}
+
+  .ui-menu .ui-menu-item a:hover
+        {
+            display: block;
+            padding: 3px 3px 3px 3px;
+            text-decoration: none;
+            color: Blue;
+            cursor: pointer;
+            background-color: ButtonText;
+        }
+

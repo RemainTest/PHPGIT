@@ -1,0 +1,71 @@
+<div class="search">
+    <form id="form_txt1" action="<?php echo $this->url(array('controller' => 'maintenance', 'action' => 'index')); ?>" method="post">
+        <p>&nbsp;</p>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Maintenance</a></li>
+            </ul>
+            <br><br>
+
+            <div id="tabs-2">
+                <table style="margin:auto; text-align:center;">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td style="width:40px;">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Clear Logs Before</td>
+                        <td>&nbsp;</td>
+                        <td><input type="text" class="date" id="log_date" name="log_date" ></td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align:center;">
+                            <div id="paging">
+                                <input class="button" type="submit" name="maint" value="Confirm" style="width:100px;"><input class="button" type="submit" name="maint" value="Cancel" style="width:100px;">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</div>
+
+<!-- Notification -->
+<div id="popup_log" title="Maintenance Notification">
+    <br>
+    <p><?= $this->count ?> logs have been deleted</p>
+    <p>That are older than <?= $this->log_date ?> </p>
+    <br>
+</div>
+
+<script type="text/javascript">
+    // File Count Popup
+    $('#popup_log').dialog({
+        modal: true,
+        autoOpen: <?= $this->log_popup ?>,
+        buttons:
+                {
+                    "Ok": function() {
+                        $(this).dialog("close");
+                    }
+                }
+    });
+</script>

@@ -1,0 +1,128 @@
+
+
+<script type="text/javascript">
+
+    google.load('visualization', '1.0', {'packages': ['corechart']});
+    google.setOnLoadCallback(drawChart);
+
+
+    function drawChart() {
+
+        //graph one
+        var data1 = new google.visualization.DataTable();
+        data1.addColumn('string', 'Month');
+        data1.addColumn('number', 'Count');
+        data1.addRows([<?= $this->chart1 ?>]);
+        var options1 = {'title': ' <?= $this->current_year ?>  Status Analysis', 'height': 300, 'is3D': true};
+        var chart1 = new google.visualization.PieChart(document.getElementById('chart1'));
+        chart1.draw(data1, options1);
+
+        //graph two
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Month');
+        data2.addColumn('number', 'Count');
+        data2.addRows([<?= $this->chart2 ?>]);
+        var options2 = {'title': 'Overall  Status Analysis', 'width': 400, 'height': 300, 'is3D': true};
+        var chart2 = new google.visualization.PieChart(document.getElementById('chart2'));
+        chart2.draw(data2, options2);
+
+        //graph three
+        var data3 = new google.visualization.DataTable();
+        data3.addColumn('string', 'Course');
+        data3.addColumn('number', 'Count');
+        data3.addRows([<?= $this->chart3 ?>]);
+        var options3 = {'title': 'Top 10 Courses Given', 'width': 400, 'height': 300, 'is3D': true};
+        var chart3 = new google.visualization.PieChart(document.getElementById('chart3'));
+        chart3.draw(data3, options3);
+
+        //graph four
+        var data4 = new google.visualization.DataTable();
+        data4.addColumn('string', 'Assement');
+        data4.addColumn('number', 'Count');
+        data4.addRows([<?= $this->chart4 ?>]);
+        var options4 = {'title': 'Assesments - Content', 'width': 400, 'height': 300, 'is3D': true};
+        var chart4 = new google.visualization.PieChart(document.getElementById('chart4'));
+        chart4.draw(data4, options4);
+
+        //graph five
+        var data5 = new google.visualization.DataTable();
+        data5.addColumn('string', 'Instructor');
+        data5.addColumn('number', 'Count');
+        data5.addRows([<?= $this->chart5 ?>]);
+        var options5 = {'title': 'Assesments - Instructor', 'width': 400, 'height': 300, 'is3D': true};
+        var chart5 = new google.visualization.PieChart(document.getElementById('chart5'));
+        chart5.draw(data5, options5);
+
+        //graph six
+        var data6 = new google.visualization.DataTable();
+        data6.addColumn('string', 'Facilities');
+        data6.addColumn('number', 'Count');
+        data6.addRows([<?= $this->chart6 ?>]);
+        var options6 = {'title': 'Assesment - Facilities', 'width': 400, 'height': 300, 'is3D': true};
+        var chart6 = new google.visualization.PieChart(document.getElementById('chart6'));
+        chart6.draw(data6, options6);
+
+
+        //graph seven
+        var data7 = new google.visualization.DataTable();
+        data7.addColumn('string', 'Facilities');
+        data7.addColumn('number', 'Count');
+        data7.addRows([<?= $this->chart7 ?>]);
+        var options7 = {'title': 'Locations', 'width': 400, 'height': 300, 'is3D': true};
+        var chart7 = new google.visualization.PieChart(document.getElementById('chart7'));
+        chart7.draw(data7, options7);
+
+        //graph 8
+        var data8 = new google.visualization.arrayToDataTable([<?= $this->chart8 ?>]);
+        //data8.addColumn('number', 'Year');
+        //data8.addColumn('number', 'Days');
+        //data8.addColumn('number', 'Courses');
+        //data8.addRows([<?= $this->chart8 ?>]);
+
+        // var options8 = {'title':'Training Days','width':400,'height':300,'is3D':true};
+        var options8 = {
+            title: 'Performance',
+            // width:400,
+            height: 300,
+            vAxis: {title: 'Count', titleTextStyle: {color: 'blue'}},
+            hAxis: {title: 'Year', titleTextStyle: {color: 'blue'}},
+            isStacked: true
+        };
+
+        var chart8 = new google.visualization.ColumnChart(document.getElementById('chart8'));
+
+        chart8.draw(data8, options8);
+
+    }
+</script>
+
+<table style="margin:auto;">
+    <tr>
+        <td style="width: 45%;"><div id="chart1" style="border: solid 1px #CCCCCC;"></div></td>
+        <td style="width: 45%;"><div id="chart2" style="border: solid 1px #CCCCCC;"></div></td>
+    </tr>
+    <tr>
+        <td style="width: 45%;"><div id="chart3" style="border: solid 1px #CCCCCC;"></div></td>
+        <td style="width: 45%;"><div id="chart4" style="border: solid 1px #CCCCCC;"></div></td>
+    </tr>
+    <tr>
+        <td style="width: 45%;"><div id="chart5" style="border: solid 1px #CCCCCC;"></div></td>
+        <td style="width: 45%;"><div id="chart6" style="border: solid 1px #CCCCCC;"></div></td>
+    </tr>
+    <tr>
+        <td style="width: 45%;"><div id="chart7" style="border: solid 1px #CCCCCC;"></div></td>
+        <td style="width: 45%;"><div id="chart8" style="border: solid 1px #CCCCCC;"></div></td>
+    </tr>
+</table>
+
+
+<div class="search">
+    <p>&nbsp;</p>
+    <div id="tabs-1">
+        <div id="paging" style="text-align:right; margin: 10px;">
+            <input  style ="color:green" type="submit" class="button" value="Back" onclick="javascript:history.go(-1);"/>
+        </div>
+    </div>
+</div>
+
+

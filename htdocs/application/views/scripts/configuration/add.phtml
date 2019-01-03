@@ -1,0 +1,33 @@
+<div class="search">
+    <p>&nbsp;</p>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Add Configuration</a></li>
+        </ul>
+        <div id="tabs-1">
+            <form id="search" action="add" method="post">
+                <table style="margin: auto;">
+                    <tr>
+                        <td>Key</td>
+                        <td><?= $this->dropdown ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">Value</td>
+                        <td style="width: 150px;"><input name="value"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px;">Text</td>
+                        <td style="width: 150px;"><input name="text"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Save"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

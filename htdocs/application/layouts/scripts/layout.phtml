@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+        <?= $this->headTitle(); ?>
+
+        <link type="text/css" href="<?= 'http://' . $_SERVER['SERVER_NAME'] . '/css/jquery-ui-1.10.3.custom.css' ?>" rel="stylesheet" />
+        <link type="text/css" href="<?= 'http://' . $_SERVER['SERVER_NAME'] . '/css/formaserve.css' ?>" rel="stylesheet"/>
+
+        <?= $this->headLink(); ?>
+
+        <script type="text/javascript" src="<?= 'http://' . $_SERVER['SERVER_NAME'] . '/js/jquery-2.0.3.min.js' ?>"></script>
+        <script type="text/javascript" src="<?= 'http://' . $_SERVER['SERVER_NAME'] . '/js/jquery-ui-1.10.3.custom.min.js' ?>"></script>
+        <script type="text/javascript" src="<?= 'http://' . $_SERVER['SERVER_NAME'] . '/js/formaserve.js' ?>"></script>
+
+        <?= $this->headScript(); ?>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="header_bg">
+                    <div class="header_logo"></div>
+                    <h1>Training Administration&nbsp;&nbsp;&nbsp;</h1>
+                    <ul>
+                        <?php
+                        echo "<li><a href=" . $this->baseUrl('enquiries/') . ">Enquiries</a></li>";
+                        echo "<li><a href=" . $this->baseUrl('classes/') . ">Courses</a></li>";
+                        echo "<li><a href=" . $this->baseUrl('dashboard/') . ">Dashboard</a></li>";
+                        echo "<li><a href=" . $this->baseUrl('configuration/') . ">Configuration</a></li>";
+                        echo "<li><a href=" . $this->baseUrl('maintenance/') . ">Maintenance</a></li>";
+                        echo "<li><a href=" . $this->baseUrl('help/') . ">Help</a></li>";
+                        ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="content"> <?php echo $this->layout()->content; ?>  
+            </div>
+            <div class="footer">
+                <p>&nbsp;</p>
+                <p><strong>Production Version</strong> &nbsp; &nbsp; Version 2.0 &nbsp; &nbsp;<a style="text-decoration: none; color:steelblue" target="_blank" href='http://www.formaserve.co.uk'> &copy; FormaServe Systems Ltd 2014</a></p>
+            </div>
+        </div>
+    </body>
+</html>
