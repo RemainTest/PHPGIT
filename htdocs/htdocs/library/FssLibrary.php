@@ -16,7 +16,7 @@
  */
 
 /**
- * Initialise
+ * Initialise and comment
  *
  * @return string current user
  */
