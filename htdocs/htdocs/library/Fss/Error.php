@@ -3,7 +3,7 @@
  * FormaServe - Error Handling
  * 
  * @author      FormaServe Systems Ltd
- * @copyright   Copyright © 1990-2013 FormaServe Systems Ltd 
+ * @copyright   Copyright © 1990-2013 FormaServe Systems Ltd and others
  * @project     f_Helpdesk
  * @category    Tickets
  * @package     f_Helpdesk
