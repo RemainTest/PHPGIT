@@ -3,7 +3,7 @@
 /**
  * FormaServe General Utilities
  * 
- * @author      FormaServe Systems Ltd
+ * @author      FormaServe Systems Ltd and others
  * @copyright   Copyright (c) 1990-2013 FormaServe Systems Ltd 
  * @project     f_Helpdesk
  * @category    Utilities
