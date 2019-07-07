@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Enquirers Details DB Class
+ * Customers Details DB Class
  * 
  * @author      FormaServe Systems Ltd
  * @copyright   Copyright (c) 1990-2012 FormaServe Systems Ltd 
  * @project     Training
  * 
  */
-class Application_Model_DbTable_Enquirers extends Zend_Db_Table_Abstract {
+class Application_Model_DbTable_Customers extends Zend_Db_Table_Abstract {
 
-    protected $_name = 'ENQUIRERS';
+    protected $_name = 'OMCUS';
     protected $_primary = 'ID';
 
     public function init() {
@@ -19,33 +19,33 @@ class Application_Model_DbTable_Enquirers extends Zend_Db_Table_Abstract {
     }
 
     /**
-     * Count number of Enquirers for an enquiry
+     * Count number of Customers for an enquiry
      * 
      * @param int $enq_no Enquiry Number
      * @return int count of records found
      */
-    public function countEnquirers($enq_no) {
+    public function countCustomers($enq_no) {
 
         $select = $this->select();
         $select->from($this->_name, 'Count(*) as count')
-                ->where('ENQ_NO = ' . $enq_no);
+                ->where('USCUSN = ' . $enq_no);
         $row = $this->fetchRow($select);
 
         return $row->count;
     }
 
     /**
-     * Get All Enquirers for an Enquiry
+     * Get All Customers for an Enquiry
      * 
      * @param int $enq_no Enquiry Number
      * 
      * @return array|null Array of details or NULL if not found
      */
-    public function getEnquirers($enq_no) {
+    public function getECustomers($enq_no) {
 
         $select = $this->select()
                 ->from($this->_name, '*')
-                ->where('ENQ_NO = ' . $enq_no)
+                ->where('USCUSN = ' . $enq_no)
                 ->order('ADD_TS DESC')
         ;
 
@@ -71,7 +71,7 @@ class Application_Model_DbTable_Enquirers extends Zend_Db_Table_Abstract {
 //        fss_log::addLog($msg);
 
         $data = array(
-            'ENQ_NO' => (int) $enq_no,
+            'USCUSN' => (int) $enq_no,
             'ADD_USER' => $this->_currentUser,
             'NAME' => trim($name)
         );
