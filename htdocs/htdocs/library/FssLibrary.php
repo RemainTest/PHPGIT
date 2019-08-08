@@ -9,7 +9,7 @@
  * @category    Utilities
  * @package     f_Training
  * @subpackage  Utilities
- * @version     1.0.1
+ * @version     1.0.2
  * @since       File available since 1.0.0
  * @link        http://www.formaserve.co.uk 
  * 
