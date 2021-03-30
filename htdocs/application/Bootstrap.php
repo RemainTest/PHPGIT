@@ -33,7 +33,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
         $frontend = array(
             'lifetime' => 86400,
-            'automatic_serialization' => false;
+            'automatic_serialization' => false
         );
 
         $backend = array(
